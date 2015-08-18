@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>The Next Text Predictior</title>
+  <meta charset="utf-8">
+  <meta name="description" content="The Next Text Predictior">
+  <meta name="author" content="Tran Ho Thanh Dong">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="http://slidifylibraries2.googlecode.com/git/inst/libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="http://slidifylibraries2.googlecode.com/git/inst/libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/io2012/js/slides" 
+    src="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>The Next Text Predictior</h1>
+    <h2>JHU - Data Science Specialization - Capstone Project</h2>
+    <p>Tran Ho Thanh Dong<br/></p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <article data-timings="">
+    <style type="text/css">
+
+@import url("//fonts.googleapis.com/css?family=Lobster|Cabin:400,700");
+
+slides > slide {
+  background: #0477BF !important;
+}
+
+.title-slide {
+  background-color: #0477BF; /* #EDE0CF; ; #CA9F9D*/
+}
+
+.title-slide hgroup > h1{
+ font-family: 'Lobster', cursive; 
+ color: #FEE202 ;
+}
+
+
+
+.title-slide hgroup > h2 {
+  font-family: 'Lobster', cursive;
+  color: #B81D18 ;  /* ; #EF5150*/
+}
+
+article p, article li, article li.build, section p, section li{
+  font-family: 'Comic Sans MS','Helvetica', 'Crimson Text', 'Garamond',  'Palatino', sans-serif;
+  text-align: justify;
+  font-size:22px;
+  line-height: 1.5em;
+  color: white;
+}
+
+slide:not(.segue) h2{
+  font-family: 'Lobster', cursive;
+  font-size: 52px;
+  font-style: normal;
+  font-weight: bold;
+  text-transform: normal;
+  letter-spacing: -2px;
+  line-height: 1.2em;
+  color: #FEE202;
+}
+
+
+/* Tables */
+table caption{
+  margin-top: 20pt;
+  font-weight: normal;
+  font-family: "Trebuchet MS", Garuda, sans-serif;
+}
+
+table th {
+  text-transform: capitalize;
+}
+
+/* Tables */
+
+table {
+  border: none;
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 20px;
+  line-height: 32px;
+  font-family: 'Trebuchet MS';
+  font-weight: bolder;
+  color: black;#BD0102;
+}
+table thead {
+  border-top: 1px solid #BFBEAD;
+  border-bottom: 1px solid #BFBEAD;
+}
+table td, table caption {
+  margin: 0;
+  padding: 2pt 6pt;
+  text-align: center;
+  vertical-align: top;
+}
+table th {
+  background: #191919;
+  color: #48ca3b ;
+  text-transform: uppercase;
+  text-align: center;
+  vertical-align: top;
+}
+table td {
+  border-bottom: 1px solid #CFCEBD;
+}
+table tr:nth-child(2n+1) {
+/*  background: #E8F2FF; */
+  background: #F9DF8D;
+}
+
+table tr:nth-child(2n) {
+/*  background: #E8F2FF; */
+  background: #EE9C21;
+}
+</style>
+
+<h2>How Does the App Work?</h2>
+
+<ol>
+<li>Waiting until the data is loaded and the message &quot;Please input more word&quot; appears</li>
+<li>Please select the Model and the Highest Ngram used for predicting.</li>
+<li>Please input number of top predcited words you want to display</li>
+<li>Please input a phrase from <strong>Twitter</strong> for predicting</li>
+<li>See the results of top words predicted and involved likelihoods</li>
+</ol>
+
+<div style='text-align: center;'>
+    <img height='320' width = '700' src='App.png' />
+</div>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>The Data Set for Ngram Models</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li><p>Due to a limit of capacity deployed on Shiny as well as required to predict Twitter, I used only Twitter file provided by Coursera. </p></li>
+<li><p>70% of Twitter file is then used to generate 1-Gram, 2-Gram, 3-Gram and 4-Gram models.</p></li>
+<li><p>A Dataset of above-mentioned Ngram models is built and is used for predicting. It is considered the Training Set</p></li>
+<li><p>30% remaining of Twitter file is used as the Test Set</p></li>
+<li><p>In fact, in order to evaluate accuracy, I also created datasets of Ngram Models (up to 6-Gram) from Blog and News files for predicting Blog and News. Please kindly see the accuracy slide (slide 5)</p></li>
+<li><p>User input is cleaned and processed to creat 1-Gram, 2-Gram, 3-Gram which are searched matching with 2-Gram, 3-Gram and 4-Gram in the Dataset</p></li>
+<li><p>The next slide will present how the models use Ngram models for predicting next word</p></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>The Models</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>Model 1 - Backoff and Knesser-Ney Smoothing: search matching from 4-Gram. If no match occurs, backing off to 3-Gram and so on unitl a match occurs. Then, Knesser-Ney Smooth is applied from matching N-Gram to lower N-grams. If no matching till 1-Gram, the model return words &quot;the&quot;. The Knesser-Ney Smooth:</li>
+</ul>
+
+<p>\[P_{KN}(w_{i}|w_{i-n+1}^{i-1}) = \]
+\[\frac{max(c(w_{i-n+1}^{i-1}-D,0))}{\sum_{w_{i}}{c(w_{i-n+1}^{i-1}})}+\frac{D}{\sum_{w_{i}}{c(w_{i-n+1}^{i-1}})}*N_{1+}(w_{i-n+1}^{i-1 }*)*P_{KN}(w_{i}|w_{i-n+2}^{i-1})\]</p>
+
+<ul>
+<li>Model 2 - Stupid-Backoff: search matching from 4-Gram. If needed, &quot;backs off&quot; with a discount to lower-order N-grams until a highest score match is found. If no matching till 1-Gram, the model return words &quot;the&quot;. Score at each matching N-gram:</li>
+</ul>
+
+<p>\[P(W) = \frac{c(w_{i-n+1}^{i-1})}{\sum_{w_{i}}{c(w_{i-n+1}^{i-1})}}\] </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>The Accuracy</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>The training set is random 70% of entire Twitter file provided, the accuracy is calculated based on randomly sampling of the test set which is 30% remaining of the data</li>
+<li>The result of fitness test against random samples of held out the test data is the following averaged values</li>
+</ul>
+
+<!-- html table generated in R 3.2.1 by xtable 1.7-4 package -->
+
+<!-- Mon Aug 17 11:30:39 2015 -->
+
+<table class:table>
+<tr> <th> Dataset </th> <th> words </th> <th> Knesser_Ney </th> <th> Stupid_Backoff </th>  </tr>
+  <tr> <td> Twitter </td> <td> 1 </td> <td> 19.3 % </td> <td> 17.6 % </td> </tr>
+  <tr> <td>  </td> <td> 2 </td> <td> 27.6 % </td> <td> 25.4 % </td> </tr>
+  <tr> <td>  </td> <td> 3 </td> <td> 31.4 % </td> <td> 29.5 % </td> </tr>
+  <tr> <td> Blogs </td> <td> 1 </td> <td> 21.1 % </td> <td> 18.1 % </td> </tr>
+  <tr> <td>  </td> <td> 2 </td> <td> 29.7 % </td> <td> 26.2 % </td> </tr>
+  <tr> <td>  </td> <td> 3 </td> <td> 33.5 % </td> <td> 30.5 % </td> </tr>
+  <tr> <td> News </td> <td> 1 </td> <td> 21.4 % </td> <td> 19.4 % </td> </tr>
+  <tr> <td>  </td> <td> 2 </td> <td> 28.6 % </td> <td> 27.4 % </td> </tr>
+  <tr> <td>  </td> <td> 3 </td> <td> 34.0 % </td> <td> 31.9 % </td> </tr>
+   </table>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title=''>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='The Data Set for Ngram Models'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='The Models'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='The Accuracy'>
+         4
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- MathJax: Fall back to local if CDN offline but local image fonts are not supported (saves >100MB) -->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+      }
+    });
+  </script>
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <!-- <script src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script> -->
+  <script>window.MathJax || document.write('<script type="text/x-mathjax-config">MathJax.Hub.Config({"HTML-CSS":{imageFont:null}});<\/script><script src="http://slidifylibraries2.googlecode.com/git/inst/libraries/widgets/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"><\/script>')
+</script>
+<!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="http://slidifylibraries2.googlecode.com/git/inst/libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
